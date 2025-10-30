@@ -1,86 +1,139 @@
-body{
-    height: auto;
-    background-color:gray;
+/* ===================== GLOBAL ===================== */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #434343, #000000);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
 
-    }
+/* ===================== NAVIGATION ===================== */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 50px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 10px;
+  z-index: 100;
 
-  /* Navigation bar container with flex layout */
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin:50px;
-    margin-top: 20px;
-    background: rgba(255, 255, 255, 0.2); 
-    backdrop-filter: blur(10px); 
-    -webkit-backdrop-filter: blur(10px); 
-    border-radius: 10px; 
-    border: 1px solid rgba(255, 255, 255, 0.3); 
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-    position: sticky;
-    top: 10px;
-    z-index: 1;
-  }
+  /* Make sure items wrap nicely on smaller screens */
+  flex-wrap: wrap;
+}
 
-  /* Logo or brand name */
-  .brand {
-    color: white;
-    font-size: 1.5em;
-    font-weight: bold;
-    text-decoration: none;
-  }
+.menu-toggle {
+  margin-top: 0px;
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: white;
+  background: none;
+  border: none;
+}
 
-  /* Navigation links container */
-  .nav-links {
-    display: flex;
-    column-gap: 20px;
-  }
+.brand { 
+  color: white; 
+  font-size: 1.8em; 
+  font-weight: bold; 
+  text-decoration: none;
+ }
 
-  /* Links styling */
-  .nav-links a {
+   .nav-links a {
     color: white;
     text-decoration: none;
     padding: 8px 12px;
     border-radius: 4px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
   }
 
-  /* Hover effect */
+    /* Hover effect */
   .nav-links a:hover {
     background-color: rgba(26, 34, 247, 0.3);
   }
 
-  /* Responsive adjustments (optional) */
-  @media (max-width: 600px) {
-    nav {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .nav-links {
-      margin-top: 10px;
-      flex-direction: column;
-      gap: 10px;
-    }
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+  nav {
+    justify-content: space-between; /* ensures brand left, toggle right */
   }
 
-.homepara{
+  .menu-toggle {
+    display: block;
+    margin-left: auto; /* pushes it to the far right */
+    
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 100%; /* ensures it appears just below the navbar */
+    left: 0;
+    width: 100%;
+    background-color: #1e1e2f;
+    padding: 15px 0;
+  }
+
+  .nav-links.active {
     display: flex;
-    font-size: 1.8em;
-    margin-top: -10px;
+    text-align: center;
+  }
+
 }
 
-.typing{
+
+/* ===================== HOME SECTION ===================== */
+#glass {
+  margin: 50px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 3%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.about {
+  flex: 1 1 500px;
+}
+
+#name {
+  font-size: 3rem;
+}
+
+#myself {
+  margin-top: -10px;
+  font-size: 2.2rem;
+}
+
+.homepara {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-top: 20px;
+}
+
+.typing {
+  position: relative;
+  left: 0.7%;
+  top: 10px;
   color: blue;
-    position: absolute;
-    top: 90px;
-    left: 120px;
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 2px solid ;
-    /* width: 0;
-    background-color: #2c76b2; */
-    animation:typing 4s steps(50, end) infinite, blink 0.75s step-end infinite;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid;
+  animation: typing 4s steps(50, end) infinite, blink 0.75s step-end infinite;
 }
 
 @keyframes typing {
@@ -88,371 +141,416 @@ body{
     width: 0%;
   }
   to {
-    width: 50%;
+    width: 45%;
   }
 }
-
-/* Cursor blinking */
 @keyframes blink {
-  from, to {
-    border-color: transparent;
-  }
   50% {
     border-color: blue;
   }
 }
 
-
-#glass{
-    margin:50px;
-    margin-top: -30px;
-    background: rgba(255, 255, 255, 0.2); 
-    backdrop-filter: blur(10px); 
-    -webkit-backdrop-filter: blur(10px); 
-    border-radius: 10px; 
-    border: 1px solid rgba(255, 255, 255, 0.3); 
-    padding: 3%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-    height: 500px;
-    position: relative;
+/* media for typing */
+/* For smaller screens (phones) */
+@media (max-width: 600px) {
+  @keyframes typing {
+    from {
+      width: 0%;
     }
-
-.myphoto{
-    width: auto; 
-    height: 400px;
-    border-radius: 50%; 
-}
-
-#photo{
-    left: 67%;
-    bottom: 18%;
-    /* background-color: blue; */
-    width: 400px; 
-    height: 400px;
-    border-radius: 50%; 
-    position: absolute;
-
+    to {
+      width: 72%; /* wider on small screens since text wraps sooner */
     }
+  }
 
-.about{
-    top: 18%;
-    position: absolute;
-    /* background-color: rgb(3, 1, 41); */
-    width: 800px;
-    margin-left: 3%;
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  @keyframes typing {
+    from {
+      width: 0%;
     }
-
-#name{
-    font-size: 3rem;
+    to {
+      width: 52%;
     }
+  }
 
-#myself{
-    margin-top: -30px;
-    font-size: 2.8rem;
-    
-}
-
-
-
-.linkedin{
-    width:10%;
-    position: absolute;
-    bottom: 50px;
-    left:6%;
-}
-
-.Email{
-    width:3%;
-    position: absolute;
-    bottom: 100px;
-    left:18%;
 
 }
 
-.figma{
-    width:3%;
-    position: absolute;
-    bottom: 100px;
-    left:23%;
+/* For large screens (desktops) */
+@media (min-width: 1025px) {
+  @keyframes typing {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 35%;
+    }
+  }
+
 }
 
 
-.git{
-    width:3%;
-    position: absolute;
-    bottom: 100px;
-    left:28%;
+#photo {
+  flex: 0 1 300px;
+  display: flex;
+  justify-content: center;
 }
 
-#skcon{
+.myphoto {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 50%;
+}
+
+
+/* ===================== SKILLS ===================== */
+#skcon {
+  margin-top: 150px;
+  text-align: center;
+}
+
+.skcont {
+  color: blue;
+  font-size: 3em;
+  margin-bottom: 50px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.skill-item {
+  background: transparent;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(7, 0, 210, 0.5);
+  padding: 20px;
+  transition: 0.3s;
+}
+
+.skill-item:hover {
+  transform: scale(1.05);
+}
+
+.skill-icon {
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+
+.skill-name {
+  font-size: 1.2em;
+}
+
+/* ===================== ABOUT ===================== */
+#detail {
+  margin: 80px 50px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 4%;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.Acont {
+  color: blue;
+  font-size: 3em;
+  margin-bottom: 30px;
+}
+
+.aboutpara {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* ===================== PROJECTS ===================== */
+#project {
+  color: blue;
+  text-align: center;
   margin-top: 150px;
 }
 
-    .skcont {
-    color: blue;
-    text-align: center;
-    margin-bottom: 30px;
-    margin-top: 100px;
-    font-size: 3em;
-    }
+.skills-gri {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  width: 80%;
+  margin: 50px auto;
+}
 
+.proj {
+  width: 100%;
+  border-radius: 10px;
+  transition: 0.3s;
+}
 
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    height: 300px;
-    width: 600px;
-    margin: 0 auto;
-    margin-top: 50px;
-  }
+.proj:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
 
-  .skill-item {
-    display: flex;
+h6 {
+  color: blue;
+  margin-top: 10px;
+}
+
+/* ===================== CONTACT ===================== */
+#contact {
+  margin-top: 150px;
+  text-align: center;
+}
+
+.contaa {
+  color: blue;
+  font-size: 3em;
+  margin-bottom: 30px;
+}
+
+.contact_detail {
+  max-width: 700px;
+  margin: 0 auto 50px;
+  font-size: 1.2em;
+}
+
+.contact-form {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 90%;
+  max-width: 450px;
+  margin: 0 auto 100px;
+  padding: 30px;
+  padding-right: 50px;
+  text-align: left;
+}
+
+.con {
+  color: blue;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  color: white;
+  resize: none;
+}
+
+button {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid #ccc;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: rgba(0, 16, 231, 0.5);
+  transform: translateY(-2px);
+}
+
+/* ===================== RESPONSIVE DESIGN ===================== */
+
+/* Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+
+  #glass {
     flex-direction: column;
     align-items: center;
-    padding: 15px;
-    background:transparent;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(7, 0, 210, 0.644);
-    opacity: 0; /* hidden initially */
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s forwards;
+    text-align: center;
   }
 
-  /* Sequential delays for animation on load */
-  .skill-item:nth-child(1) { animation-delay: 0.2s; }
-  .skill-item:nth-child(2) { animation-delay: 0.4s; }
-  .skill-item:nth-child(3) { animation-delay: 0.6s; }
-  .skill-item:nth-child(4) { animation-delay: 0.8s; }
-  .skill-item:nth-child(5) { animation-delay: 1s; }
-  .skill-item:nth-child(6) { animation-delay: 1.2s; }
 
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .about {
+    width: 90%;
   }
 
-  /* Icon colors */
-  .fa-html5 { color: #e34c26; }
-  .fa-css3-alt { color: blue; }
-  .fa-js-square { color: #f8d700d9; }
-  .fa-react { color: #61dafb; }
-  .fa-python { color: #2c76b2; }
-  .fa-node-js { color: #468e3f; }
+  #photo {
+    order: -1;
+  }
+
+  .skills-grid,
+  .skills-gri {
+    width: 90%;
+  }
+
+  .contact-form {
+    max-width: 300px;
+  }
+}
+
+/* Mobile landscape (max-width: 768px) */
+@media (max-width: 768px) {
+  #name {
+    font-size: 2rem;
+  }
+
+  #myself {
+    font-size: 1.5rem;
+  }
+
+  .homepara {
+    font-size: 1em;
+  }
+
+  .skills-grid,
+  .skills-gri {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   .skill-icon {
-    margin-top: 8%;
-    font-size: 7em;
-    transition: color 0.3s, transform 0.3s;
+    font-size: 3rem;
   }
 
-  .skill-icon:hover {
-    transform: scale(1.1);
-  }
-  .skill-name {
+  .aboutpara {
     font-size: 1em;
-    text-align: center;
   }
-
-  #detail{
-    margin:50px;
-    margin-top:200px;
-    background: rgba(255, 255, 255, 0.2); 
-    backdrop-filter: blur(10px); 
-    -webkit-backdrop-filter: blur(10px); 
-    border-radius: 10px; 
-    border: 1px solid rgba(255, 255, 255, 0.3); 
-    padding: 4%;
-    padding-top: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-    height: 500px;
-    position: relative;
 }
 
-.Acont{
-    color: blue;
-    text-align: center;
-    font-size: 3em;
-}
-
-.aboutpara{
-  font-size: 1.8em;
-
-}
-
-  #project {
-    color: blue;
-    text-align: center;
-    margin-bottom: 30px;
-    margin-top: 150px;
-    font-size: 2.2em;
-    }
-
-
-  .skills-gri {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    height: 400px;
-    width: 800px;
-    margin: 0 auto;
-    margin-top: 50px;
-    margin-left:200px;
-  }
-
-.proj{
-  width: 300px;
-  transition: color 0.3s, transform 0.3s;
-  }
-
-  .proj:hover {
-    transform: scale(1.1); 
-  }
-
-h6{
-  margin-top: 30px;
-  color: blue;
-  text-decoration:none;
-
-}
-.pr{
-  text-decoration: none;
-}
-
-#contact{
-  position: relative;
-}
-
-.contact_detail{
-  position: absolute;
-  margin-top: 5%;
-  width: 700px;
-  font-size: 1.5em;
-  left: 8%;
-  color: white;
-}
-
-.linkedin2{
-  width:20%;
-  left: -4px;
-  position: absolute;
-}
-
-.Email2{
-  width:7%;
-  position: absolute;
-  left: 23%;
-  top: 125%;
-}
-
-.git2{
-  width:5.5%;
-  position: absolute;
-  left: 34%;
-  top: 127%;
-}
-
- .contact-form {
-    margin-top:3%;
-    margin-left: 60%;
-    margin-bottom: 50px;
-    background: rgba(255, 255, 255, 0.2); 
-    backdrop-filter: blur(10px); 
-    -webkit-backdrop-filter: blur(10px); 
-    border-radius: 10px; 
-    border: 1px solid rgba(255, 255, 255, 0.3); 
-    padding: 4%;
-    padding-top: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-    height: 500px;
-    width: 400px;
-    position: absolute;
-    transform: translateY(30px);
-    animation: fadeInUp 1s ease forwards;
-  }
-
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .contaa{
-    color: blue;
-    text-align: center;
-    margin-bottom: 30px;
-    margin-top: 35%;
-    font-size: 3em;
-  }
-
-  .con {
-    text-align: center;
-    margin-bottom: 20px;
-    color: blue;
-  }
-
-  label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-    color: white;
-  }
-
-  input[type="text"],
-  input[type="email"],
-  textarea {
-    width: 100%;
+/* Mobile portrait (max-width: 480px) */
+@media (max-width: 480px) {
+  nav {
+    margin: 10px;
     padding: 10px;
-    margin-top: 5px;
-    border-radius: 4px;
-    background-color: transparent;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    transition: all 0.3s ease;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 0.6s forwards;
   }
 
-input:focus{
-    border-color: blue;
+  .brand {
+    font-size: 1.3em;
   }
 
-  input[type="text"]:nth-child(1) { animation-delay: 0.2s; }
-  input[type="email"]:nth-child(2) { animation-delay: 0.4s; }
-  input[type="text"]:nth-child(3) { animation-delay: 0.6s; }
-  textarea { animation-delay: 0.8s; }
-
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .nav-links a {
+    font-size: 0.9em;
   }
 
-  button {
-    display: block;
-    width: 100%;
-    margin-top: 20px;
-    padding: 12px;
-    background: rgba(255, 255, 255, 0.2); 
-    border: 1px solid #ccc;
-    color: #fff;
-    border-radius: 4px;
-    cursor: pointer;
+  #glass {
+    margin: 20px;
+  }
+
+  #name {
+    font-size: 1.5rem;
+  }
+
+  #myself {
+    font-size: 1.2rem;
+  }
+
+  .skills-grid,
+  .skills-gri {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-icon {
+    font-size: 2.5rem;
+  }
+
+  .contact_detail {
     font-size: 1em;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 0.6s forwards;
-    animation-delay: 1s;
   }
 
-  button:hover {
-    background-color: #0010e751;
-    transform: translateY(-2px);
+  .contact-form {
+    width: 250px;
+    padding: 20px;
+    padding-right: 50px;
   }
+
+}
+
+/* ===== Social Media Icons ===== */
+.social.media {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 25px;
+  margin-top: 20px;
+  margin-right: 200px;
+}
+
+/* Default icon style */
+.social.media img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover effect */
+.social.media img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+
+/* ===== Responsive Media Queries ===== */
+
+/* For tablets (768px and below) */
+@media (max-width: 768px) {
+  .social.media img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* For small screens and mobiles (480px and below) */
+@media (max-width: 480px) {
+  .social.media {
+    gap: 15px;
+  }
+
+  .social.media img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* this one for contact .social.media icon */
+.social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+/* Default icon style */
+.social-media img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover effect */
+.social-media img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
