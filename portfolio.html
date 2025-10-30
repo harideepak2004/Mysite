@@ -13,6 +13,7 @@
 
 <nav>
   <a href="#" class="brand">MySite</a>
+  <div class="menu-toggle">&#9776;</div>
   <div class="nav-links">
     <a href="#glass">Home</a>
     <a href="#skcon">Skills</a>
@@ -29,16 +30,19 @@
     <p class="homepara">Eager to apply my passion for building modern, responsive websites
        and web applications. Skilled in translating ideas into functional solutions through 
        coding, with a strong enthusiasm for learning and growth in the tech field..</p>
-  </div>
+  
   <div class="social media">
-    <a href="https://www.linkedin.com/in/harideepak-s-7b41832b5" target="_blank"><img  src="linkedin.png" class="linkedin"></a>
     <a href="mailto:harideepak.s10@gmail.com" target="_blank"><img src="Email.png" class="Email"></a>
     <a href="https://www.figma.com/files/project/310996257" target="_blank"><img src="figma.png" class="figma"></a>
     <a href="https://github.com/harideepak2004" target="_blank"><img src="github.png" class="git"></a>
+    <a href="https://www.linkedin.com/in/harideepak-s-7b41832b5" target="_blank"><img  src="linkedin.png" class="linkedin"></a>
+
+  </div>
   </div>
   <div id="photo">
     <img src="gemini1.jpg" class="myphoto" alt="My Photo" >
   </div>
+  
 </div>
 
 <div id="skcon">
@@ -67,6 +71,10 @@
   </div>
   <div class="skill-item">
     <i class="fab fa-node-js skill-icon"></i>
+    <div class="skill-name"></div>
+  </div>
+  <div class="skill-item">
+    <i class="fab fa-figma skill-icon"></i>
     <div class="skill-name"></div>
   </div>
 </div>
@@ -112,10 +120,6 @@
     <a href="https://www.figma.com/proto/1Mxd6c9m3VuIqpxmMXUR2d/juice?node-id=32&t=SZxttGJJHGzP7LZP-1 " class="pr" target="_blank"><img src="Screenshot 2025-10-04 230030.png" class="proj"><h6>Figma</h6></a>
     <div class="skill-name"></div>
   </div>
-  <div class="skill-item">
-    <a href="" target="_blank" class="pr"><img src="Screenshot 2025-10-04 230122.png" class="proj"><h6>Figma</h6></a>
-    <div class="skill-name"></div>
-  </div>
 </div>
 </div>
 
@@ -130,10 +134,11 @@
   collaborate, or just connect! You can use the contact form below 
   or email me directly, and I’ll get back to you as soon as 
   possible.</p>
-
+<div class="social-media">
 <a href="https://www.linkedin.com/in/harideepak-s-7b41832b5" target="_blank"><img  src="linkedin.png" class="linkedin2"></a>
 <a href="mailto:harideepak.s10@gmail.com" target="_blank"><img src="Email.png" class="Email2"></a>
 <a href="https://github.com/harideepak2004" target="_blank"><img src="github.png" class="git2"></a>
+</div>
 </div>
 
 <div class="contact-form">
@@ -157,4 +162,13 @@
 </div>
 </div>
 </body>
-</html
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  toggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+
+</html>
