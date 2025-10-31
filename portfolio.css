@@ -2,7 +2,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #434343, #000000);
+  background: linear-gradient(135deg, #7f7f7f, #777777);
   color: white;
   font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
@@ -102,7 +102,6 @@ nav {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
 }
 
 .about {
@@ -114,7 +113,7 @@ nav {
 }
 
 #myself {
-  margin-top: -10px;
+  margin-top: -15px;
   font-size: 2.2rem;
 }
 
@@ -124,73 +123,33 @@ nav {
   margin-top: 20px;
 }
 
+/* here is the typing code */
 .typing {
   position: relative;
   left: 0.7%;
   top: 10px;
-  color: blue;
   display: inline-block;
   overflow: hidden;
   white-space: nowrap;
   border-right: 2px solid;
-  animation: typing 4s steps(50, end) infinite, blink 0.75s step-end infinite;
+  animation: typing 5s steps(22, end) infinite, blink 0.75s step-end infinite;
 }
 
-@keyframes typing {
-  from {
-    width: 0%;
-  }
-  to {
-    width: 45%;
-  }
+/* Colored text */
+#colortype {
+  color: blue;
 }
+
+/* Blinking cursor animation */
 @keyframes blink {
-  50% {
-    border-color: blue;
-  }
+  50% { border-color: transparent; }
 }
 
-/* media for typing */
-/* For smaller screens (phones) */
-@media (max-width: 600px) {
-  @keyframes typing {
-    from {
-      width: 0%;
-    }
-    to {
-      width: 72%; /* wider on small screens since text wraps sooner */
-    }
-  }
-
+/* Typing animation using character width */
+@keyframes typing {
+  from { width: 0ch; }
+  to { width: 23ch; } /* Adjust the number based on text length */
 }
-
-/* For medium screens (tablets) */
-@media (min-width: 601px) and (max-width: 1024px) {
-  @keyframes typing {
-    from {
-      width: 0%;
-    }
-    to {
-      width: 52%;
-    }
-  }
-
-
-}
-
-/* For large screens (desktops) */
-@media (min-width: 1025px) {
-  @keyframes typing {
-    from {
-      width: 0%;
-    }
-    to {
-      width: 35%;
-    }
-  }
-
-}
-
 
 #photo {
   flex: 0 1 300px;
@@ -205,6 +164,55 @@ nav {
   border-radius: 50%;
 }
 
+/* ===== Social Media Icons ===== */
+.social.media {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 25px;
+  margin-top: 20px;
+  margin-right: 200px;
+}
+
+/* Default icon style */
+.social.media img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover effect */
+.social.media img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+
+/* this one for contact .social.media icon */
+.social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+/* Default icon style */
+.social-media img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover effect */
+.social-media img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
 
 /* ===================== SKILLS ===================== */
 #skcon {
@@ -388,7 +396,6 @@ button:hover {
     text-align: center;
   }
 
-
   .about {
     width: 90%;
   }
@@ -409,6 +416,8 @@ button:hover {
 
 /* Mobile landscape (max-width: 768px) */
 @media (max-width: 768px) {
+
+
   #name {
     font-size: 2rem;
   }
@@ -483,74 +492,52 @@ button:hover {
 
 }
 
-/* ===== Social Media Icons ===== */
-.social.media {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 25px;
-  margin-top: 20px;
-  margin-right: 200px;
-}
+/* media query only for the social media tag */
 
-/* Default icon style */
-.social.media img {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  cursor: pointer;
-}
-
-/* Hover effect */
-.social.media img:hover {
-  transform: scale(1.1);
-  filter: brightness(1.2);
-}
-
-
-/* ===== Responsive Media Queries ===== */
-
-/* For tablets (768px and below) */
-@media (max-width: 768px) {
-  .social.media img {
-    width: 40px;
-    height: 40px;
-  }
-}
-
-/* For small screens and mobiles (480px and below) */
-@media (max-width: 480px) {
+@media (min-width: 900px) and (max-width: 1024px) {
   .social.media {
-    gap: 15px;
-  }
-
-  .social.media img {
-    width: 30px;
-    height: 30px;
+    margin-left: 35%; 
   }
 }
 
-/* this one for contact .social.media icon */
-.social-media {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 25px;
-  margin-top: 20px;
+@media (min-width: 770px) and (max-width: 900px) {
+  .social.media {
+    margin-left: 32%; 
+  }
 }
 
-/* Default icon style */
-.social-media img {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  cursor: pointer;
+@media (min-width: 700px) and (max-width: 770px) {
+  .social.media {
+    margin-left: 28%; 
+  }
 }
 
-/* Hover effect */
-.social-media img:hover {
-  transform: scale(1.1);
-  filter: brightness(1.2);
+@media (min-width: 605px) and (max-width: 700px) {
+  .social.media {
+    margin-left: 25%; 
+  }
+}
+
+@media (min-width: 500px) and (max-width: 605px) {
+  .social.media {
+    margin-left: 19%; 
+  }
+}
+
+@media (min-width: 415px) and (max-width: 500px) {
+  .social.media {
+    margin-left: 15%; 
+  }
+}
+
+@media (min-width: 370px) and (max-width: 415px) {
+  .social.media {
+    margin-left: 10%; 
+  }
+}
+
+@media (max-width: 370px) {
+  .social.media {
+    margin-left: 6%; 
+  }
 }
